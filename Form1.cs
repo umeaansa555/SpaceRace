@@ -18,12 +18,16 @@ namespace SpaceRace
         int player1Score = 0;
         int player2Score = 0;
 
-        int playerSpeed = 20;
+        int playerSpeed = 50;
 
         bool wDown = false;
         bool sDown = false;
         bool upArrowDown = false;
         bool downArrowDown = false;
+
+        List<Rectangle> asteroids = new List<Rectangle>();
+        Random randGen = new Random();
+        int randValue = 0;
 
         SolidBrush blackBrush = new SolidBrush(Color.Black);
 
@@ -111,7 +115,21 @@ namespace SpaceRace
             p1ScoreLabel.Text = player1Score + "";
             p2ScoreLabel.Text = player2Score + "";
 
-        Refresh();
+            // check score and stop game if either player is at 3 
+            if (player1Score == 3)
+            {
+                engine.Enabled = false;
+                winLabel.Visible = true;
+                winLabel.Text = "Player 1 Wins!!";
+            }
+            else if (player2Score == 3)
+            {
+                engine.Enabled = false;
+                winLabel.Visible = true;
+                winLabel.Text = "Player 2 Wins!!";
+            }
+
+            Refresh();
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
