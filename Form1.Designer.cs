@@ -34,6 +34,7 @@ namespace SpaceRace
             this.p1ScoreLabel = new System.Windows.Forms.Label();
             this.p2ScoreLabel = new System.Windows.Forms.Label();
             this.winLabel = new System.Windows.Forms.Label();
+            this.playAgain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // engine
@@ -78,11 +79,28 @@ namespace SpaceRace
             this.winLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.winLabel.Visible = false;
             // 
+            // playAgain
+            // 
+            this.playAgain.AutoSize = true;
+            this.playAgain.BackColor = System.Drawing.Color.Red;
+            this.playAgain.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
+            this.playAgain.Font = new System.Drawing.Font("8-bit Operator+", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playAgain.ForeColor = System.Drawing.Color.Chartreuse;
+            this.playAgain.Location = new System.Drawing.Point(-2, 288);
+            this.playAgain.Name = "playAgain";
+            this.playAgain.Size = new System.Drawing.Size(168, 77);
+            this.playAgain.TabIndex = 3;
+            this.playAgain.Text = " Play Again";
+            this.playAgain.UseVisualStyleBackColor = false;
+            this.playAgain.Visible = false;
+            this.playAgain.Click += new System.EventHandler(this.playAgain_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 361);
+            this.Controls.Add(this.playAgain);
             this.Controls.Add(this.winLabel);
             this.Controls.Add(this.p2ScoreLabel);
             this.Controls.Add(this.p1ScoreLabel);
@@ -93,6 +111,7 @@ namespace SpaceRace
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -102,6 +121,7 @@ namespace SpaceRace
         private System.Windows.Forms.Label p1ScoreLabel;
         private System.Windows.Forms.Label p2ScoreLabel;
         private System.Windows.Forms.Label winLabel;
+        private System.Windows.Forms.Button playAgain;
     }
 }
 

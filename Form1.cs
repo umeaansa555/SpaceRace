@@ -123,12 +123,14 @@ namespace SpaceRace
                 engine.Enabled = false;
                 winLabel.Visible = true;
                 winLabel.Text = "Player 1 Wins!!";
+                playAgain.Visible = true;
             }
             else if (player2Score == 3)
             {
                 engine.Enabled = false;
                 winLabel.Visible = true;
                 winLabel.Text = "Player 2 Wins!!";
+                playAgain.Visible = true;
             }
 
             //asteroids (in progress)
@@ -174,6 +176,11 @@ namespace SpaceRace
             {
                 e.Graphics.FillRectangle(blackBrush, asteroids[i]);
             }
+        }
+
+        private void playAgain_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }
