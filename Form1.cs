@@ -27,6 +27,7 @@ namespace SpaceRace
 
         List<Rectangle> asteroids = new List<Rectangle>();
         int astroSize = 10;
+        List<int> astroSpeed = new List<int>();
         Random randGen = new Random();
         int randValue = 0;
 
@@ -134,10 +135,21 @@ namespace SpaceRace
             ///check to see if a new ball should be created 
             randValue = randGen.Next(0, 101);
 
-            if (randValue < 50) //1% chance of gold ball, (extra time) 
+            if (randValue < 50)
             {
-                int x = randGen.Next(10, this.Width - astroSize * 2);
-                asteroids.Add(new Rectangle(x, 10, astroSize, astroSize));
+                int y = randGen.Next(10, this.Height - astroSize * 2);
+                asteroids.Add(new Rectangle(10, y, astroSize, astroSize));
+                astroSpeed.Add(randGen.Next(2, 20));
+            }
+
+            // move balls 
+            for (int i = 0; i < asteroids.Count(); i++)
+            {
+                //find the new postion of x based on speed  
+                int x = asteroids[i].X + astroSpeed[i];
+
+                //replace the rectangle in the list with updated one using new y 
+                asteroids[i] = new Rectangle(x, asteroids[i].Y, astroSize, astroSize);
             }
 
             //check if ball is below play area and remove it if it is 
