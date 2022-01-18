@@ -26,6 +26,7 @@ namespace SpaceRace
         bool downArrowDown = false;
 
         List<Rectangle> asteroids = new List<Rectangle>();
+        int astroSize = 10;
         Random randGen = new Random();
         int randValue = 0;
 
@@ -129,6 +130,26 @@ namespace SpaceRace
                 winLabel.Text = "Player 2 Wins!!";
             }
 
+            //asteroids (in progress)
+            ///check to see if a new ball should be created 
+            randValue = randGen.Next(0, 101);
+
+            if (randValue < 50) //1% chance of gold ball, (extra time) 
+            {
+                int x = randGen.Next(10, this.Width - astroSize * 2);
+                asteroids.Add(new Rectangle(x, 10, astroSize, astroSize));
+            }
+
+            //check if ball is below play area and remove it if it is 
+            for (int i = 0; i < asteroids.Count(); i++)
+            {
+                if (asteroids[i].X > this.Width)
+                {
+                    asteroids.RemoveAt(i);
+                }
+            }
+
+
             Refresh();
         }
 
@@ -137,6 +158,10 @@ namespace SpaceRace
             e.Graphics.FillRectangle(blackBrush, player1);
             e.Graphics.FillRectangle(blackBrush, player2);
 
+            for (int i = 0; i < asteroids.Count(); i++)
+            {
+                e.Graphics.FillRectangle(blackBrush, asteroids[i]);
+            }
         }
     }
 }
