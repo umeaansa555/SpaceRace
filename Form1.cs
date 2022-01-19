@@ -12,8 +12,8 @@ namespace SpaceRace
 {
     public partial class Form1 : Form
     {
-        Rectangle player1 = new Rectangle(150, 300, 10, 60);
-        Rectangle player2 = new Rectangle(350, 300, 10, 60);
+        Rectangle player1 = new Rectangle(150, 300, 10, 30);
+        Rectangle player2 = new Rectangle(350, 300, 10, 30);
         
         int player1Score = 0;
         int player2Score = 0;
@@ -32,10 +32,20 @@ namespace SpaceRace
         int randValue = 0;
 
         SolidBrush blackBrush = new SolidBrush(Color.Black);
+        
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        //lines / borders
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            Pen drawPen = new Pen(Color.Red, 10);
+            g.Clear(BackColor);
+            g.DrawLine(drawPen, 400, 10, 400, 50);
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -139,7 +149,7 @@ namespace SpaceRace
 
             if (randValue < 50)
             {
-                int y = randGen.Next(10, this.Height - astroSize * 2);
+                int y = randGen.Next(30, 200);
                 asteroids.Add(new Rectangle(10, y, astroSize, astroSize));
                 astroSpeed.Add(randGen.Next(2, 20));
             }
@@ -182,5 +192,12 @@ namespace SpaceRace
         {
             Application.Restart();
         }
+
+        //private void startGame_Click(object sender, EventArgs e)
+        //{
+        //    startGame.Visible = false;
+        //    engine.Enabled = true;
+
+        //}
     }
 }
