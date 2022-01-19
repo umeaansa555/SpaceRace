@@ -32,7 +32,7 @@ namespace SpaceRace
         Random randGen = new Random();
         int randValue = 0;
 
-        SolidBrush blackBrush = new SolidBrush(Color.Black);
+        SolidBrush objectBrush = new SolidBrush(Color.White);
         
 
         public Form1()
@@ -192,14 +192,15 @@ namespace SpaceRace
                 {
                     asteroids.RemoveAt(i);
                 }
+                
+            }
+            for (int i = 0; i < asteroids.Count(); i++)
+            {
                 if (asteroids2[i].X > this.Width) // - 50)***
                 {
                     asteroids2.RemoveAt(i);
                 }
             }
-
-            
-            
 
 
             Refresh();
@@ -207,13 +208,13 @@ namespace SpaceRace
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(blackBrush, player1);
-            e.Graphics.FillRectangle(blackBrush, player2);
+            e.Graphics.FillRectangle(objectBrush, player1);
+            e.Graphics.FillRectangle(objectBrush, player2);
 
             for (int i = 0; i < asteroids.Count(); i++)
             {
-                e.Graphics.FillRectangle(blackBrush, asteroids[i]);
-                e.Graphics.FillRectangle(blackBrush, asteroids2[i]);
+                e.Graphics.FillRectangle(objectBrush, asteroids[i]);
+                e.Graphics.FillRectangle(objectBrush, asteroids2[i]);
             }
         }
 

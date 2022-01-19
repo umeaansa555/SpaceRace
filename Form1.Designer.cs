@@ -46,7 +46,8 @@ namespace SpaceRace
             // 
             this.p1ScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.p1ScoreLabel.Font = new System.Drawing.Font("8-bit Operator+", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p1ScoreLabel.Location = new System.Drawing.Point(231, 335);
+            this.p1ScoreLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.p1ScoreLabel.Location = new System.Drawing.Point(224, 332);
             this.p1ScoreLabel.Name = "p1ScoreLabel";
             this.p1ScoreLabel.Size = new System.Drawing.Size(62, 67);
             this.p1ScoreLabel.TabIndex = 0;
@@ -57,7 +58,8 @@ namespace SpaceRace
             // 
             this.p2ScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.p2ScoreLabel.Font = new System.Drawing.Font("8-bit Operator+", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.p2ScoreLabel.Location = new System.Drawing.Point(528, 335);
+            this.p2ScoreLabel.ForeColor = System.Drawing.Color.Gainsboro;
+            this.p2ScoreLabel.Location = new System.Drawing.Point(503, 332);
             this.p2ScoreLabel.Name = "p2ScoreLabel";
             this.p2ScoreLabel.Size = new System.Drawing.Size(62, 67);
             this.p2ScoreLabel.TabIndex = 1;
@@ -71,11 +73,12 @@ namespace SpaceRace
             | System.Windows.Forms.AnchorStyles.Right)));
             this.winLabel.BackColor = System.Drawing.Color.Transparent;
             this.winLabel.Font = new System.Drawing.Font("8-bit Operator+", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.winLabel.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.winLabel.Location = new System.Drawing.Point(12, 136);
             this.winLabel.Name = "winLabel";
             this.winLabel.Size = new System.Drawing.Size(760, 117);
             this.winLabel.TabIndex = 2;
-            this.winLabel.Text = "text";
+            this.winLabel.Text = "Space Race";
             this.winLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.winLabel.Visible = false;
             // 
@@ -84,8 +87,9 @@ namespace SpaceRace
             this.playAgain.AutoSize = true;
             this.playAgain.BackColor = System.Drawing.Color.Red;
             this.playAgain.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
+            this.playAgain.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.playAgain.Font = new System.Drawing.Font("8-bit Operator+", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playAgain.ForeColor = System.Drawing.Color.Chartreuse;
+            this.playAgain.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.playAgain.Location = new System.Drawing.Point(12, 322);
             this.playAgain.Name = "playAgain";
             this.playAgain.Size = new System.Drawing.Size(168, 77);
@@ -99,13 +103,16 @@ namespace SpaceRace
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(784, 411);
             this.Controls.Add(this.playAgain);
             this.Controls.Add(this.p2ScoreLabel);
             this.Controls.Add(this.p1ScoreLabel);
             this.Controls.Add(this.winLabel);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Space Race";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
