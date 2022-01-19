@@ -13,7 +13,7 @@ namespace SpaceRace
     public partial class Form1 : Form
     {
         Rectangle player1 = new Rectangle(150, 300, 10, 30);
-        Rectangle player2 = new Rectangle(350, 300, 10, 30);
+        Rectangle player2 = new Rectangle(550, 300, 10, 30);
         
         int player1Score = 0;
         int player2Score = 0;
@@ -26,6 +26,7 @@ namespace SpaceRace
         bool downArrowDown = false;
 
         List<Rectangle> asteroids = new List<Rectangle>();
+        List<Rectangle> asteroids2 = new List<Rectangle>();
         int astroSize = 10;
         List<int> astroSpeed = new List<int>();
         Random randGen = new Random();
@@ -111,7 +112,7 @@ namespace SpaceRace
             }
 
             
-            //score points
+            //score points and return player to bottom
             if(player1.Y < 0)
             {
                 player1Score++;
@@ -151,6 +152,7 @@ namespace SpaceRace
             {
                 int y = randGen.Next(30, 200);
                 asteroids.Add(new Rectangle(10, y, astroSize, astroSize));
+                asteroids2.Add(new Rectangle(this.Width/2 + 10, y, astroSize, astroSize));
                 astroSpeed.Add(randGen.Next(2, 20));
             }
 
@@ -159,17 +161,22 @@ namespace SpaceRace
             {
                 //find the new postion of x based on speed  
                 int x = asteroids[i].X + astroSpeed[i];
-
+                int x2 = asteroids2[i].X + astroSpeed[i];
                 //replace the rectangle in the list with updated one using new y 
                 asteroids[i] = new Rectangle(x, asteroids[i].Y, astroSize, astroSize);
+                asteroids2[i] = new Rectangle(x2, asteroids2[i].Y, astroSize, astroSize);
             }
 
             //check if ball is below play area and remove it if it is 
             for (int i = 0; i < asteroids.Count(); i++)
             {
-                if (asteroids[i].X > this.Width)
+                if (asteroids[i].X > this.Width/2 - 20 )
                 {
                     asteroids.RemoveAt(i);
+                }
+                if (asteroids2[i].X > this.Width) // - 50)***
+                {
+                    asteroids2.RemoveAt(i);
                 }
             }
 
@@ -185,6 +192,7 @@ namespace SpaceRace
             for (int i = 0; i < asteroids.Count(); i++)
             {
                 e.Graphics.FillRectangle(blackBrush, asteroids[i]);
+                e.Graphics.FillRectangle(blackBrush, asteroids2[i]);
             }
         }
 
