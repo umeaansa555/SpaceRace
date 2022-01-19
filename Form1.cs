@@ -89,6 +89,24 @@ namespace SpaceRace
 
         private void engine_Tick(object sender, EventArgs e)
         {
+            //check if there were any collisions
+
+            for (int i = 0; i < asteroids.Count(); i++)
+            {
+                if (player1.IntersectsWith(asteroids[i]))
+                {
+                player1.Y = this.Height - player1.Height;
+
+                }
+            }
+
+            for (int i = 0; i < asteroids.Count(); i++)
+            {
+                if (player2.IntersectsWith(asteroids2[i]))
+                {
+                player2.Y = this.Height - player2.Height;
+                }
+            }
             //move player 1 
             if (wDown == true) //&& player1.Y > 0
             {
@@ -148,12 +166,12 @@ namespace SpaceRace
             ///check to see if a new ball should be created 
             randValue = randGen.Next(0, 101);
 
-            if (randValue < 50)
+            if (randValue < 30)
             {
                 int y = randGen.Next(30, 200);
                 asteroids.Add(new Rectangle(10, y, astroSize, astroSize));
                 asteroids2.Add(new Rectangle(this.Width/2 + 10, y, astroSize, astroSize));
-                astroSpeed.Add(randGen.Next(2, 20));
+                astroSpeed.Add(randGen.Next(2, 17));
             }
 
             // move balls 
@@ -179,6 +197,9 @@ namespace SpaceRace
                     asteroids2.RemoveAt(i);
                 }
             }
+
+            
+            
 
 
             Refresh();
