@@ -47,7 +47,7 @@ namespace SpaceRace
             this.p1ScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.p1ScoreLabel.Font = new System.Drawing.Font("8-bit Operator+", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p1ScoreLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.p1ScoreLabel.Location = new System.Drawing.Point(224, 332);
+            this.p1ScoreLabel.Location = new System.Drawing.Point(225, 374);
             this.p1ScoreLabel.Name = "p1ScoreLabel";
             this.p1ScoreLabel.Size = new System.Drawing.Size(62, 67);
             this.p1ScoreLabel.TabIndex = 0;
@@ -59,7 +59,7 @@ namespace SpaceRace
             this.p2ScoreLabel.BackColor = System.Drawing.Color.Transparent;
             this.p2ScoreLabel.Font = new System.Drawing.Font("8-bit Operator+", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.p2ScoreLabel.ForeColor = System.Drawing.Color.Gainsboro;
-            this.p2ScoreLabel.Location = new System.Drawing.Point(503, 332);
+            this.p2ScoreLabel.Location = new System.Drawing.Point(502, 374);
             this.p2ScoreLabel.Name = "p2ScoreLabel";
             this.p2ScoreLabel.Size = new System.Drawing.Size(62, 67);
             this.p2ScoreLabel.TabIndex = 1;
@@ -76,7 +76,7 @@ namespace SpaceRace
             this.winLabel.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.winLabel.Location = new System.Drawing.Point(12, 136);
             this.winLabel.Name = "winLabel";
-            this.winLabel.Size = new System.Drawing.Size(760, 117);
+            this.winLabel.Size = new System.Drawing.Size(776, 156);
             this.winLabel.TabIndex = 2;
             this.winLabel.Text = "Space Race";
             this.winLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -89,7 +89,7 @@ namespace SpaceRace
             this.playAgain.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.playAgain.Font = new System.Drawing.Font("8-bit Operator+", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playAgain.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.playAgain.Location = new System.Drawing.Point(12, 352);
+            this.playAgain.Location = new System.Drawing.Point(12, 394);
             this.playAgain.Name = "playAgain";
             this.playAgain.Size = new System.Drawing.Size(168, 47);
             this.playAgain.TabIndex = 3;
@@ -105,7 +105,7 @@ namespace SpaceRace
             this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.startButton.Font = new System.Drawing.Font("8-bit Operator+", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startButton.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.startButton.Location = new System.Drawing.Point(300, 228);
+            this.startButton.Location = new System.Drawing.Point(312, 242);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(168, 47);
             this.startButton.TabIndex = 4;
@@ -118,7 +118,7 @@ namespace SpaceRace
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(784, 411);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.playAgain);
             this.Controls.Add(this.p2ScoreLabel);

@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
+
+// A. Ansari final summative Jan 2022
+// Space Race 2 player game
+// fonts, sounds, game concept do not belong to me
 namespace SpaceRace
 {
     public partial class Form1 : Form
     {
-        Rectangle player1 = new Rectangle(150, 300, 10, 30);
-        Rectangle player2 = new Rectangle(550, 300, 10, 30);
+        Rectangle player1 = new Rectangle(250, 300, 10, 30);
+        Rectangle player2 = new Rectangle(525, 300, 10, 30);
 
         int player1Score = 0;
         int player2Score = 0;
@@ -38,6 +43,9 @@ namespace SpaceRace
 
         SolidBrush objectBrush = new SolidBrush(Color.White);
 
+        SoundPlayer movePlayer = new SoundPlayer(Properties.Resources._336928__the_sacha_rush__blip3);
+        SoundPlayer lapPlayer = new SoundPlayer(Properties.Resources._518558__se2001__quick_blip);
+        SoundPlayer winPlayer = new SoundPlayer(Properties.Resources._277441__xtrgamr__tones_of_victory);
 
         public Form1()
         {
@@ -58,15 +66,19 @@ namespace SpaceRace
             switch (e.KeyCode)
             {
                 case Keys.W:
+                    movePlayer.Play();
                     wDown = true;
                     break;
                 case Keys.S:
+                    movePlayer.Play();
                     sDown = true;
                     break;
                 case Keys.Up:
+                    movePlayer.Play();
                     upArrowDown = true;
                     break;
                 case Keys.Down:
+                    movePlayer.Play();
                     downArrowDown = true;
                     break;
             }
@@ -93,7 +105,7 @@ namespace SpaceRace
 
         private void engine_Tick(object sender, EventArgs e)
         {
-            //check if there were any collisions
+            //check for collisions
 
             for (int i = 0; i < asteroids.Count(); i++)
             {
@@ -127,41 +139,45 @@ namespace SpaceRace
                     player2.Y = this.Height - player2.Height;
                 }
             }
-            //move player 1 
-            if (wDown == true) //&& player1.Y > 0
-            {
-                player1.Y -= playerSpeed;
-            }
-
-            if (sDown == true && player1.Y < this.Height - player1.Height)
-            {
-                player1.Y += playerSpeed;
-            }
-
-            //move player 2 
-            if (upArrowDown == true) //&& player2.Y > 0)
-            {
-                player2.Y -= playerSpeed;
-            }
-
-            if (downArrowDown == true && player2.Y < this.Height - player2.Height)
-            {
-                player2.Y += playerSpeed;
-            }
-
-
             //score points and return player to bottom
             if (player1.Y < 0)
             {
+                lapPlayer.Play();
                 player1Score++;
                 player1.Y = this.Height - player1.Height;
             }
 
             if (player2.Y < 0)
             {
+                lapPlayer.Play();
                 player2Score++;
                 player2.Y = this.Height - player2.Height;
             }
+            //move player 1 
+            if (wDown == true) //&& player1.Y > 0
+            {
+                
+                player1.Y -= playerSpeed;
+            }
+            if (sDown == true && player1.Y < this.Height - player1.Height)
+            {
+                
+                player1.Y += playerSpeed;
+            }
+
+            //move player 2 
+            if (upArrowDown == true) //&& player2.Y > 0)
+            {
+                
+                player2.Y -= playerSpeed;
+            }
+            if (downArrowDown == true && player2.Y < this.Height - player2.Height)
+            {
+                
+                player2.Y += playerSpeed;
+            }
+
+            
 
             p1ScoreLabel.Text = player1Score + "";
             p2ScoreLabel.Text = player2Score + "";
@@ -169,20 +185,24 @@ namespace SpaceRace
             // check score and stop game if either player is at 3 
             if (player1Score == 3)
             {
+                winPlayer.Play();
                 engine.Enabled = false;
                 winLabel.Visible = true;
                 winLabel.Text = "Player 1 Wins!!";
                 playAgain.Visible = true;
+                
             }
             else if (player2Score == 3)
             {
+                winPlayer.Play();
                 engine.Enabled = false;
                 winLabel.Visible = true;
                 winLabel.Text = "Player 2 Wins!!";
                 playAgain.Visible = true;
+                
             }
 
-            //asteroids (in progress)
+            //asteroids
             ///Generate Asteroid
             randValue = randGen.Next(0, 101);
 

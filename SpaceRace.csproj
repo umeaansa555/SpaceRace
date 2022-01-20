@@ -67,6 +67,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,6 +81,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\518558__se2001__quick-blip.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\336928__the-sacha-rush__blip3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\277441__xtrgamr__tones-of-victory.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\_518558__se2001__quick_blip.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
