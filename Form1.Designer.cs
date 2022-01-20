@@ -35,11 +35,11 @@ namespace SpaceRace
             this.p2ScoreLabel = new System.Windows.Forms.Label();
             this.winLabel = new System.Windows.Forms.Label();
             this.playAgain = new System.Windows.Forms.Button();
+            this.startButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // engine
             // 
-            this.engine.Enabled = true;
             this.engine.Tick += new System.EventHandler(this.engine_Tick);
             // 
             // p1ScoreLabel
@@ -80,7 +80,6 @@ namespace SpaceRace
             this.winLabel.TabIndex = 2;
             this.winLabel.Text = "Space Race";
             this.winLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.winLabel.Visible = false;
             // 
             // playAgain
             // 
@@ -90,14 +89,29 @@ namespace SpaceRace
             this.playAgain.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.playAgain.Font = new System.Drawing.Font("8-bit Operator+", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playAgain.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.playAgain.Location = new System.Drawing.Point(12, 322);
+            this.playAgain.Location = new System.Drawing.Point(12, 352);
             this.playAgain.Name = "playAgain";
-            this.playAgain.Size = new System.Drawing.Size(168, 77);
+            this.playAgain.Size = new System.Drawing.Size(168, 47);
             this.playAgain.TabIndex = 3;
             this.playAgain.Text = " Play Again";
             this.playAgain.UseVisualStyleBackColor = false;
             this.playAgain.Visible = false;
             this.playAgain.Click += new System.EventHandler(this.playAgain_Click);
+            // 
+            // startButton
+            // 
+            this.startButton.BackColor = System.Drawing.Color.Red;
+            this.startButton.FlatAppearance.BorderColor = System.Drawing.Color.OrangeRed;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.startButton.Font = new System.Drawing.Font("8-bit Operator+", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.startButton.Location = new System.Drawing.Point(300, 228);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(168, 47);
+            this.startButton.TabIndex = 4;
+            this.startButton.Text = "Start Game";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // Form1
             // 
@@ -105,6 +119,7 @@ namespace SpaceRace
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(784, 411);
+            this.Controls.Add(this.startButton);
             this.Controls.Add(this.playAgain);
             this.Controls.Add(this.p2ScoreLabel);
             this.Controls.Add(this.p1ScoreLabel);
@@ -130,6 +145,7 @@ namespace SpaceRace
         private System.Windows.Forms.Label p2ScoreLabel;
         private System.Windows.Forms.Label winLabel;
         private System.Windows.Forms.Button playAgain;
+        private System.Windows.Forms.Button startButton;
     }
 }
 

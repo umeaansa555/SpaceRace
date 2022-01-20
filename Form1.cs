@@ -260,6 +260,11 @@ namespace SpaceRace
 
             Refresh();
         }
+        //private void gameEngine()
+        //{
+        //    engine.Enabled = true;
+
+        //}
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
@@ -280,6 +285,15 @@ namespace SpaceRace
         private void playAgain_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            engine.Enabled = true;
+            //engine.Start();
+            startButton.Visible = false;
+            winLabel.Visible = false;
+            this.Focus();
         }
 
         //private void startGame_Click(object sender, EventArgs e)
