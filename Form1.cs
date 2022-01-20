@@ -27,6 +27,8 @@ namespace SpaceRace
 
         List<Rectangle> asteroids = new List<Rectangle>();
         List<Rectangle> asteroids2 = new List<Rectangle>();
+        //List<Rectangle> asteroids3 = new List<Rectangle>();
+        //List<Rectangle> asteroids4 = new List<Rectangle>();
         int astroSize = 10;
         List<int> astroSpeed = new List<int>();
         List<int> astroSpeed2 = new List<int>();
@@ -109,6 +111,22 @@ namespace SpaceRace
                     player2.Y = this.Height - player2.Height;
                 }
             }
+            for (int i = 0; i < asteroids2.Count(); i++)
+            {
+                if (player1.IntersectsWith(asteroids2[i]))
+                {
+                    player1.Y = this.Height - player1.Height;
+
+                }
+            }
+
+            for (int i = 0; i < asteroids2.Count(); i++)
+            {
+                if (player2.IntersectsWith(asteroids2[i]))
+                {
+                    player2.Y = this.Height - player2.Height;
+                }
+            }
             //move player 1 
             if (wDown == true) //&& player1.Y > 0
             {
@@ -165,7 +183,7 @@ namespace SpaceRace
             }
 
             //asteroids (in progress)
-            ///check to see if a new ball should be created 
+            ///Generate Asteroid
             randValue = randGen.Next(0, 101);
 
             if (randValue < 30)
@@ -175,14 +193,14 @@ namespace SpaceRace
                 astroSpeed.Add(randGen.Next(2, 17));
 
                 int y2 = randGen.Next(30, 200);         
-                asteroids2.Add(new Rectangle(this.Width + 10, y, astroSize, astroSize));
+                asteroids2.Add(new Rectangle(this.Width - 20, y2, astroSize, astroSize));
                 astroSpeed2.Add(randGen.Next(2, 17));
 
                 //asteroids3.Add(new Rectangle(this.Width /2, y2, astroSize, astroSize));
                 //asteroids4.Add(new Rectangle(this.Width, y2, astroSize, astroSize));
             }
 
-            // move balls 
+            // move asteroids
             for (int i = 0; i < asteroids.Count(); i++)
             {
                 //find the new postion of x based on speed  
@@ -195,12 +213,13 @@ namespace SpaceRace
             for (int i = 0; i < asteroids2.Count(); i++)
             {
                 //find the new postion of x based on speed  
-                int x = asteroids2[i].X - astroSpeed2[i];
+                int x2 = asteroids2[i].X - astroSpeed2[i];
 
                 //replace the rectangle in the list with updated one using new y 
-                asteroids2[i] = new Rectangle(x, asteroids2[i].Y, astroSize, astroSize);
+                asteroids2[i] = new Rectangle(x2, asteroids2[i].Y, astroSize, astroSize);
             }
-            //check if ball is below play area and remove it if it is 
+
+            //remove offscreen objects
             for (int i = 0; i < asteroids.Count(); i++)
             {
                 if (asteroids[i].X > this.Width - 20)
@@ -208,7 +227,14 @@ namespace SpaceRace
                     asteroids.RemoveAt(i);
                     astroSpeed.RemoveAt(i);
                 }
-
+            }
+            for (int i = 0; i < asteroids2.Count(); i++)
+            {
+                if (asteroids2[i].X > this.Width + 20)
+                {
+                    asteroids2.RemoveAt(i);
+                    astroSpeed2.RemoveAt(i);
+                }
             }
             //for (int i = 0; i < asteroids.Count(); i++)
             //{
