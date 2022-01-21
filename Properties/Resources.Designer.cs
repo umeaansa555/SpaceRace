@@ -81,6 +81,15 @@ namespace SpaceRace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
+        internal static System.IO.UnmanagedMemoryStream _466556__danieldouch__little_blip {
+            get {
+                return ResourceManager.GetStream("_466556__danieldouch__little_blip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
         internal static System.IO.UnmanagedMemoryStream _518558__se2001__quick_blip {
             get {
                 return ResourceManager.GetStream("_518558__se2001__quick_blip", resourceCulture);

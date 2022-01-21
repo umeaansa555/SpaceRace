@@ -94,5 +94,8 @@
   <ItemGroup>
     <None Include="Resources\_518558__se2001__quick_blip.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\466556__danieldouch__little-blip.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

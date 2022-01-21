@@ -17,8 +17,8 @@ namespace SpaceRace
 {
     public partial class Form1 : Form
     {
-        Rectangle player1 = new Rectangle(250, 300, 10, 30);
-        Rectangle player2 = new Rectangle(525, 300, 10, 30);
+        Rectangle player1 = new Rectangle(250, 330, 10, 30);
+        Rectangle player2 = new Rectangle(525, 330, 10, 30);
 
         int player1Score = 0;
         int player2Score = 0;
@@ -43,7 +43,7 @@ namespace SpaceRace
 
         SolidBrush objectBrush = new SolidBrush(Color.White);
 
-        SoundPlayer movePlayer = new SoundPlayer(Properties.Resources._336928__the_sacha_rush__blip3);
+        SoundPlayer movePlayer = new SoundPlayer(Properties.Resources._466556__danieldouch__little_blip);
         SoundPlayer lapPlayer = new SoundPlayer(Properties.Resources._518558__se2001__quick_blip);
         SoundPlayer winPlayer = new SoundPlayer(Properties.Resources._277441__xtrgamr__tones_of_victory);
 
@@ -190,6 +190,7 @@ namespace SpaceRace
                 winLabel.Visible = true;
                 winLabel.Text = "Player 1 Wins!!";
                 playAgain.Visible = true;
+                exitButton.Visible = true;
                 
             }
             else if (player2Score == 3)
@@ -199,7 +200,8 @@ namespace SpaceRace
                 winLabel.Visible = true;
                 winLabel.Text = "Player 2 Wins!!";
                 playAgain.Visible = true;
-                
+                exitButton.Visible = true;
+
             }
 
             //asteroids
@@ -208,11 +210,11 @@ namespace SpaceRace
 
             if (randValue < 30)
             {
-                int y = randGen.Next(30, 200);
+                int y = randGen.Next(30, 300);
                 asteroids.Add(new Rectangle(10, y, astroSize, astroSize));
                 astroSpeed.Add(randGen.Next(2, 17));
 
-                int y2 = randGen.Next(30, 200);         
+                int y2 = randGen.Next(30, 300);         
                 asteroids2.Add(new Rectangle(this.Width - 20, y2, astroSize, astroSize));
                 astroSpeed2.Add(randGen.Next(2, 17));
 
@@ -314,6 +316,11 @@ namespace SpaceRace
             startButton.Visible = false;
             winLabel.Visible = false;
             this.Focus();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         //private void startGame_Click(object sender, EventArgs e)
